@@ -1,0 +1,1024 @@
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                Output Shape                 Param #   Connected to                  
+==================================================================================================
+ input_1 (InputLayer)        [(None, 192, 256, 3)]        0         []                            
+                                                                                                  
+ conv2d (Conv2D)             (None, 192, 256, 8)          224       ['input_1[0][0]']             
+                                                                                                  
+ conv2d_1 (Conv2D)           (None, 192, 256, 8)          584       ['conv2d[0][0]']              
+                                                                                                  
+ max_pooling2d (MaxPooling2  (None, 96, 128, 8)           0         ['conv2d_1[0][0]']            
+ D)                                                                                               
+                                                                                                  
+ conv2d_2 (Conv2D)           (None, 96, 128, 16)          1168      ['max_pooling2d[0][0]']       
+                                                                                                  
+ conv2d_3 (Conv2D)           (None, 96, 128, 16)          2320      ['conv2d_2[0][0]']            
+                                                                                                  
+ max_pooling2d_1 (MaxPoolin  (None, 48, 64, 16)           0         ['conv2d_3[0][0]']            
+ g2D)                                                                                             
+                                                                                                  
+ conv2d_4 (Conv2D)           (None, 48, 64, 32)           4640      ['max_pooling2d_1[0][0]']     
+                                                                                                  
+ conv2d_5 (Conv2D)           (None, 48, 64, 32)           9248      ['conv2d_4[0][0]']            
+                                                                                                  
+ max_pooling2d_2 (MaxPoolin  (None, 24, 32, 32)           0         ['conv2d_5[0][0]']            
+ g2D)                                                                                             
+                                                                                                  
+ conv2d_6 (Conv2D)           (None, 24, 32, 16)           4624      ['max_pooling2d_2[0][0]']     
+                                                                                                  
+ conv2d_7 (Conv2D)           (None, 24, 32, 16)           2320      ['conv2d_6[0][0]']            
+                                                                                                  
+ max_pooling2d_3 (MaxPoolin  (None, 12, 16, 16)           0         ['conv2d_7[0][0]']            
+ g2D)                                                                                             
+                                                                                                  
+ conv2d_8 (Conv2D)           (None, 12, 16, 8)            1160      ['max_pooling2d_3[0][0]']     
+                                                                                                  
+ conv2d_9 (Conv2D)           (None, 12, 16, 8)            584       ['conv2d_8[0][0]']            
+                                                                                                  
+ max_pooling2d_4 (MaxPoolin  (None, 6, 8, 8)              0         ['conv2d_9[0][0]']            
+ g2D)                                                                                             
+                                                                                                  
+ tf.split (TFOpLambda)       [(None, 6, 8, 2),            0         ['max_pooling2d_4[0][0]']     
+                              (None, 6, 8, 2),                                                    
+                              (None, 6, 8, 2),                                                    
+                              (None, 6, 8, 2)]                                                    
+                                                                                                  
+ tf.image.extract_patches (  (None, 3, 4, 8)              0         ['tf.split[0][0]']            
+ TFOpLambda)                                                                                      
+                                                                                                  
+ tf.image.extract_patches_1  (None, 3, 4, 8)              0         ['tf.split[0][1]']            
+  (TFOpLambda)                                                                                    
+                                                                                                  
+ tf.image.extract_patches_2  (None, 3, 4, 8)              0         ['tf.split[0][2]']            
+  (TFOpLambda)                                                                                    
+                                                                                                  
+ tf.image.extract_patches_3  (None, 3, 4, 8)              0         ['tf.split[0][3]']            
+  (TFOpLambda)                                                                                    
+                                                                                                  
+ reshape (Reshape)           (None, 12, 8)                0         ['tf.image.extract_patches[0][
+                                                                    0]']                          
+                                                                                                  
+ reshape_27 (Reshape)        (None, 12, 8)                0         ['tf.image.extract_patches_1[0
+                                                                    ][0]']                        
+                                                                                                  
+ reshape_54 (Reshape)        (None, 12, 8)                0         ['tf.image.extract_patches_2[0
+                                                                    ][0]']                        
+                                                                                                  
+ reshape_81 (Reshape)        (None, 12, 8)                0         ['tf.image.extract_patches_3[0
+                                                                    ][0]']                        
+                                                                                                  
+ tf.split_1 (TFOpLambda)     [(None, 1, 8),               0         ['reshape[0][0]']             
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8)]                                                       
+                                                                                                  
+ tf.split_6 (TFOpLambda)     [(None, 1, 8),               0         ['reshape_27[0][0]']          
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8)]                                                       
+                                                                                                  
+ tf.split_11 (TFOpLambda)    [(None, 1, 8),               0         ['reshape_54[0][0]']          
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8)]                                                       
+                                                                                                  
+ tf.split_16 (TFOpLambda)    [(None, 1, 8),               0         ['reshape_81[0][0]']          
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8),                                                       
+                              (None, 1, 8)]                                                       
+                                                                                                  
+ qcnn1 (KerasLayer)          (None, 8)                    4         ['tf.split_1[0][0]',          
+                                                                     'tf.split_1[0][1]',          
+                                                                     'tf.split_1[0][2]',          
+                                                                     'tf.split_1[0][3]',          
+                                                                     'tf.split_1[0][4]',          
+                                                                     'tf.split_1[0][5]',          
+                                                                     'tf.split_1[0][6]',          
+                                                                     'tf.split_1[0][7]',          
+                                                                     'tf.split_1[0][8]',          
+                                                                     'tf.split_1[0][9]',          
+                                                                     'tf.split_1[0][10]',         
+                                                                     'tf.split_1[0][11]',         
+                                                                     'tf.split_6[0][0]',          
+                                                                     'tf.split_6[0][1]',          
+                                                                     'tf.split_6[0][2]',          
+                                                                     'tf.split_6[0][3]',          
+                                                                     'tf.split_6[0][4]',          
+                                                                     'tf.split_6[0][5]',          
+                                                                     'tf.split_6[0][6]',          
+                                                                     'tf.split_6[0][7]',          
+                                                                     'tf.split_6[0][8]',          
+                                                                     'tf.split_6[0][9]',          
+                                                                     'tf.split_6[0][10]',         
+                                                                     'tf.split_6[0][11]',         
+                                                                     'tf.split_11[0][0]',         
+                                                                     'tf.split_11[0][1]',         
+                                                                     'tf.split_11[0][2]',         
+                                                                     'tf.split_11[0][3]',         
+                                                                     'tf.split_11[0][4]',         
+                                                                     'tf.split_11[0][5]',         
+                                                                     'tf.split_11[0][6]',         
+                                                                     'tf.split_11[0][7]',         
+                                                                     'tf.split_11[0][8]',         
+                                                                     'tf.split_11[0][9]',         
+                                                                     'tf.split_11[0][10]',        
+                                                                     'tf.split_11[0][11]',        
+                                                                     'tf.split_16[0][0]',         
+                                                                     'tf.split_16[0][1]',         
+                                                                     'tf.split_16[0][2]',         
+                                                                     'tf.split_16[0][3]',         
+                                                                     'tf.split_16[0][4]',         
+                                                                     'tf.split_16[0][5]',         
+                                                                     'tf.split_16[0][6]',         
+                                                                     'tf.split_16[0][7]',         
+                                                                     'tf.split_16[0][8]',         
+                                                                     'tf.split_16[0][9]',         
+                                                                     'tf.split_16[0][10]',        
+                                                                     'tf.split_16[0][11]']        
+                                                                                                  
+ qcnn2 (KerasLayer)          (None, 8)                    4         ['tf.split_1[0][0]',          
+                                                                     'tf.split_1[0][1]',          
+                                                                     'tf.split_1[0][2]',          
+                                                                     'tf.split_1[0][3]',          
+                                                                     'tf.split_1[0][4]',          
+                                                                     'tf.split_1[0][5]',          
+                                                                     'tf.split_1[0][6]',          
+                                                                     'tf.split_1[0][7]',          
+                                                                     'tf.split_1[0][8]',          
+                                                                     'tf.split_1[0][9]',          
+                                                                     'tf.split_1[0][10]',         
+                                                                     'tf.split_1[0][11]',         
+                                                                     'tf.split_6[0][0]',          
+                                                                     'tf.split_6[0][1]',          
+                                                                     'tf.split_6[0][2]',          
+                                                                     'tf.split_6[0][3]',          
+                                                                     'tf.split_6[0][4]',          
+                                                                     'tf.split_6[0][5]',          
+                                                                     'tf.split_6[0][6]',          
+                                                                     'tf.split_6[0][7]',          
+                                                                     'tf.split_6[0][8]',          
+                                                                     'tf.split_6[0][9]',          
+                                                                     'tf.split_6[0][10]',         
+                                                                     'tf.split_6[0][11]',         
+                                                                     'tf.split_11[0][0]',         
+                                                                     'tf.split_11[0][1]',         
+                                                                     'tf.split_11[0][2]',         
+                                                                     'tf.split_11[0][3]',         
+                                                                     'tf.split_11[0][4]',         
+                                                                     'tf.split_11[0][5]',         
+                                                                     'tf.split_11[0][6]',         
+                                                                     'tf.split_11[0][7]',         
+                                                                     'tf.split_11[0][8]',         
+                                                                     'tf.split_11[0][9]',         
+                                                                     'tf.split_11[0][10]',        
+                                                                     'tf.split_11[0][11]',        
+                                                                     'tf.split_16[0][0]',         
+                                                                     'tf.split_16[0][1]',         
+                                                                     'tf.split_16[0][2]',         
+                                                                     'tf.split_16[0][3]',         
+                                                                     'tf.split_16[0][4]',         
+                                                                     'tf.split_16[0][5]',         
+                                                                     'tf.split_16[0][6]',         
+                                                                     'tf.split_16[0][7]',         
+                                                                     'tf.split_16[0][8]',         
+                                                                     'tf.split_16[0][9]',         
+                                                                     'tf.split_16[0][10]',        
+                                                                     'tf.split_16[0][11]']        
+                                                                                                  
+ reshape_1 (Reshape)         (None, 2, 2, 2, 1)           0         ['qcnn1[0][0]']               
+                                                                                                  
+ reshape_3 (Reshape)         (None, 2, 2, 2, 1)           0         ['qcnn1[1][0]']               
+                                                                                                  
+ reshape_5 (Reshape)         (None, 2, 2, 2, 1)           0         ['qcnn1[2][0]']               
+                                                                                                  
+ reshape_7 (Reshape)         (None, 2, 2, 2, 1)           0         ['qcnn1[3][0]']               
+                                                                                                  
+ reshape_9 (Reshape)         (None, 2, 2, 2, 1)           0         ['qcnn1[4][0]']               
+                                                                                                  
+ reshape_11 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[5][0]']               
+                                                                                                  
+ reshape_13 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[6][0]']               
+                                                                                                  
+ reshape_15 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[7][0]']               
+                                                                                                  
+ reshape_17 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[8][0]']               
+                                                                                                  
+ reshape_19 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[9][0]']               
+                                                                                                  
+ reshape_21 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[10][0]']              
+                                                                                                  
+ reshape_23 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[11][0]']              
+                                                                                                  
+ reshape_28 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[12][0]']              
+                                                                                                  
+ reshape_30 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[13][0]']              
+                                                                                                  
+ reshape_32 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[14][0]']              
+                                                                                                  
+ reshape_34 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[15][0]']              
+                                                                                                  
+ reshape_36 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[16][0]']              
+                                                                                                  
+ reshape_38 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[17][0]']              
+                                                                                                  
+ reshape_40 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[18][0]']              
+                                                                                                  
+ reshape_42 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[19][0]']              
+                                                                                                  
+ reshape_44 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[20][0]']              
+                                                                                                  
+ reshape_46 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[21][0]']              
+                                                                                                  
+ reshape_48 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[22][0]']              
+                                                                                                  
+ reshape_50 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[23][0]']              
+                                                                                                  
+ reshape_55 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[24][0]']              
+                                                                                                  
+ reshape_57 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[25][0]']              
+                                                                                                  
+ reshape_59 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[26][0]']              
+                                                                                                  
+ reshape_61 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[27][0]']              
+                                                                                                  
+ reshape_63 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[28][0]']              
+                                                                                                  
+ reshape_65 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[29][0]']              
+                                                                                                  
+ reshape_67 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[30][0]']              
+                                                                                                  
+ reshape_69 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[31][0]']              
+                                                                                                  
+ reshape_71 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[32][0]']              
+                                                                                                  
+ reshape_73 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[33][0]']              
+                                                                                                  
+ reshape_75 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[34][0]']              
+                                                                                                  
+ reshape_77 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[35][0]']              
+                                                                                                  
+ reshape_82 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[36][0]']              
+                                                                                                  
+ reshape_84 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[37][0]']              
+                                                                                                  
+ reshape_86 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[38][0]']              
+                                                                                                  
+ reshape_88 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[39][0]']              
+                                                                                                  
+ reshape_90 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[40][0]']              
+                                                                                                  
+ reshape_92 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[41][0]']              
+                                                                                                  
+ reshape_94 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[42][0]']              
+                                                                                                  
+ reshape_96 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[43][0]']              
+                                                                                                  
+ reshape_98 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn1[44][0]']              
+                                                                                                  
+ reshape_100 (Reshape)       (None, 2, 2, 2, 1)           0         ['qcnn1[45][0]']              
+                                                                                                  
+ reshape_102 (Reshape)       (None, 2, 2, 2, 1)           0         ['qcnn1[46][0]']              
+                                                                                                  
+ reshape_104 (Reshape)       (None, 2, 2, 2, 1)           0         ['qcnn1[47][0]']              
+                                                                                                  
+ reshape_2 (Reshape)         (None, 2, 2, 2, 1)           0         ['qcnn2[0][0]']               
+                                                                                                  
+ reshape_4 (Reshape)         (None, 2, 2, 2, 1)           0         ['qcnn2[1][0]']               
+                                                                                                  
+ reshape_6 (Reshape)         (None, 2, 2, 2, 1)           0         ['qcnn2[2][0]']               
+                                                                                                  
+ reshape_8 (Reshape)         (None, 2, 2, 2, 1)           0         ['qcnn2[3][0]']               
+                                                                                                  
+ reshape_10 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[4][0]']               
+                                                                                                  
+ reshape_12 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[5][0]']               
+                                                                                                  
+ reshape_14 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[6][0]']               
+                                                                                                  
+ reshape_16 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[7][0]']               
+                                                                                                  
+ reshape_18 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[8][0]']               
+                                                                                                  
+ reshape_20 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[9][0]']               
+                                                                                                  
+ reshape_22 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[10][0]']              
+                                                                                                  
+ reshape_24 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[11][0]']              
+                                                                                                  
+ reshape_29 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[12][0]']              
+                                                                                                  
+ reshape_31 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[13][0]']              
+                                                                                                  
+ reshape_33 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[14][0]']              
+                                                                                                  
+ reshape_35 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[15][0]']              
+                                                                                                  
+ reshape_37 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[16][0]']              
+                                                                                                  
+ reshape_39 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[17][0]']              
+                                                                                                  
+ reshape_41 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[18][0]']              
+                                                                                                  
+ reshape_43 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[19][0]']              
+                                                                                                  
+ reshape_45 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[20][0]']              
+                                                                                                  
+ reshape_47 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[21][0]']              
+                                                                                                  
+ reshape_49 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[22][0]']              
+                                                                                                  
+ reshape_51 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[23][0]']              
+                                                                                                  
+ reshape_56 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[24][0]']              
+                                                                                                  
+ reshape_58 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[25][0]']              
+                                                                                                  
+ reshape_60 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[26][0]']              
+                                                                                                  
+ reshape_62 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[27][0]']              
+                                                                                                  
+ reshape_64 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[28][0]']              
+                                                                                                  
+ reshape_66 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[29][0]']              
+                                                                                                  
+ reshape_68 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[30][0]']              
+                                                                                                  
+ reshape_70 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[31][0]']              
+                                                                                                  
+ reshape_72 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[32][0]']              
+                                                                                                  
+ reshape_74 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[33][0]']              
+                                                                                                  
+ reshape_76 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[34][0]']              
+                                                                                                  
+ reshape_78 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[35][0]']              
+                                                                                                  
+ reshape_83 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[36][0]']              
+                                                                                                  
+ reshape_85 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[37][0]']              
+                                                                                                  
+ reshape_87 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[38][0]']              
+                                                                                                  
+ reshape_89 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[39][0]']              
+                                                                                                  
+ reshape_91 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[40][0]']              
+                                                                                                  
+ reshape_93 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[41][0]']              
+                                                                                                  
+ reshape_95 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[42][0]']              
+                                                                                                  
+ reshape_97 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[43][0]']              
+                                                                                                  
+ reshape_99 (Reshape)        (None, 2, 2, 2, 1)           0         ['qcnn2[44][0]']              
+                                                                                                  
+ reshape_101 (Reshape)       (None, 2, 2, 2, 1)           0         ['qcnn2[45][0]']              
+                                                                                                  
+ reshape_103 (Reshape)       (None, 2, 2, 2, 1)           0         ['qcnn2[46][0]']              
+                                                                                                  
+ reshape_105 (Reshape)       (None, 2, 2, 2, 1)           0         ['qcnn2[47][0]']              
+                                                                                                  
+ tf.concat (TFOpLambda)      (None, 2, 2, 2, 12)          0         ['reshape_1[0][0]',           
+                                                                     'reshape_3[0][0]',           
+                                                                     'reshape_5[0][0]',           
+                                                                     'reshape_7[0][0]',           
+                                                                     'reshape_9[0][0]',           
+                                                                     'reshape_11[0][0]',          
+                                                                     'reshape_13[0][0]',          
+                                                                     'reshape_15[0][0]',          
+                                                                     'reshape_17[0][0]',          
+                                                                     'reshape_19[0][0]',          
+                                                                     'reshape_21[0][0]',          
+                                                                     'reshape_23[0][0]']          
+                                                                                                  
+ tf.concat_6 (TFOpLambda)    (None, 2, 2, 2, 12)          0         ['reshape_28[0][0]',          
+                                                                     'reshape_30[0][0]',          
+                                                                     'reshape_32[0][0]',          
+                                                                     'reshape_34[0][0]',          
+                                                                     'reshape_36[0][0]',          
+                                                                     'reshape_38[0][0]',          
+                                                                     'reshape_40[0][0]',          
+                                                                     'reshape_42[0][0]',          
+                                                                     'reshape_44[0][0]',          
+                                                                     'reshape_46[0][0]',          
+                                                                     'reshape_48[0][0]',          
+                                                                     'reshape_50[0][0]']          
+                                                                                                  
+ tf.concat_12 (TFOpLambda)   (None, 2, 2, 2, 12)          0         ['reshape_55[0][0]',          
+                                                                     'reshape_57[0][0]',          
+                                                                     'reshape_59[0][0]',          
+                                                                     'reshape_61[0][0]',          
+                                                                     'reshape_63[0][0]',          
+                                                                     'reshape_65[0][0]',          
+                                                                     'reshape_67[0][0]',          
+                                                                     'reshape_69[0][0]',          
+                                                                     'reshape_71[0][0]',          
+                                                                     'reshape_73[0][0]',          
+                                                                     'reshape_75[0][0]',          
+                                                                     'reshape_77[0][0]']          
+                                                                                                  
+ tf.concat_18 (TFOpLambda)   (None, 2, 2, 2, 12)          0         ['reshape_82[0][0]',          
+                                                                     'reshape_84[0][0]',          
+                                                                     'reshape_86[0][0]',          
+                                                                     'reshape_88[0][0]',          
+                                                                     'reshape_90[0][0]',          
+                                                                     'reshape_92[0][0]',          
+                                                                     'reshape_94[0][0]',          
+                                                                     'reshape_96[0][0]',          
+                                                                     'reshape_98[0][0]',          
+                                                                     'reshape_100[0][0]',         
+                                                                     'reshape_102[0][0]',         
+                                                                     'reshape_104[0][0]']         
+                                                                                                  
+ tf.concat_1 (TFOpLambda)    (None, 2, 2, 2, 12)          0         ['reshape_2[0][0]',           
+                                                                     'reshape_4[0][0]',           
+                                                                     'reshape_6[0][0]',           
+                                                                     'reshape_8[0][0]',           
+                                                                     'reshape_10[0][0]',          
+                                                                     'reshape_12[0][0]',          
+                                                                     'reshape_14[0][0]',          
+                                                                     'reshape_16[0][0]',          
+                                                                     'reshape_18[0][0]',          
+                                                                     'reshape_20[0][0]',          
+                                                                     'reshape_22[0][0]',          
+                                                                     'reshape_24[0][0]']          
+                                                                                                  
+ tf.concat_7 (TFOpLambda)    (None, 2, 2, 2, 12)          0         ['reshape_29[0][0]',          
+                                                                     'reshape_31[0][0]',          
+                                                                     'reshape_33[0][0]',          
+                                                                     'reshape_35[0][0]',          
+                                                                     'reshape_37[0][0]',          
+                                                                     'reshape_39[0][0]',          
+                                                                     'reshape_41[0][0]',          
+                                                                     'reshape_43[0][0]',          
+                                                                     'reshape_45[0][0]',          
+                                                                     'reshape_47[0][0]',          
+                                                                     'reshape_49[0][0]',          
+                                                                     'reshape_51[0][0]']          
+                                                                                                  
+ tf.concat_13 (TFOpLambda)   (None, 2, 2, 2, 12)          0         ['reshape_56[0][0]',          
+                                                                     'reshape_58[0][0]',          
+                                                                     'reshape_60[0][0]',          
+                                                                     'reshape_62[0][0]',          
+                                                                     'reshape_64[0][0]',          
+                                                                     'reshape_66[0][0]',          
+                                                                     'reshape_68[0][0]',          
+                                                                     'reshape_70[0][0]',          
+                                                                     'reshape_72[0][0]',          
+                                                                     'reshape_74[0][0]',          
+                                                                     'reshape_76[0][0]',          
+                                                                     'reshape_78[0][0]']          
+                                                                                                  
+ tf.concat_19 (TFOpLambda)   (None, 2, 2, 2, 12)          0         ['reshape_83[0][0]',          
+                                                                     'reshape_85[0][0]',          
+                                                                     'reshape_87[0][0]',          
+                                                                     'reshape_89[0][0]',          
+                                                                     'reshape_91[0][0]',          
+                                                                     'reshape_93[0][0]',          
+                                                                     'reshape_95[0][0]',          
+                                                                     'reshape_97[0][0]',          
+                                                                     'reshape_99[0][0]',          
+                                                                     'reshape_101[0][0]',         
+                                                                     'reshape_103[0][0]',         
+                                                                     'reshape_105[0][0]']         
+                                                                                                  
+ reshape_25 (Reshape)        (None, 2, 2, 2, 3, 4)        0         ['tf.concat[0][0]']           
+                                                                                                  
+ reshape_52 (Reshape)        (None, 2, 2, 2, 3, 4)        0         ['tf.concat_6[0][0]']         
+                                                                                                  
+ reshape_79 (Reshape)        (None, 2, 2, 2, 3, 4)        0         ['tf.concat_12[0][0]']        
+                                                                                                  
+ reshape_106 (Reshape)       (None, 2, 2, 2, 3, 4)        0         ['tf.concat_18[0][0]']        
+                                                                                                  
+ reshape_26 (Reshape)        (None, 2, 2, 2, 3, 4)        0         ['tf.concat_1[0][0]']         
+                                                                                                  
+ reshape_53 (Reshape)        (None, 2, 2, 2, 3, 4)        0         ['tf.concat_7[0][0]']         
+                                                                                                  
+ reshape_80 (Reshape)        (None, 2, 2, 2, 3, 4)        0         ['tf.concat_13[0][0]']        
+                                                                                                  
+ reshape_107 (Reshape)       (None, 2, 2, 2, 3, 4)        0         ['tf.concat_19[0][0]']        
+                                                                                                  
+ tf.split_2 (TFOpLambda)     [(None, 2, 2, 2, 1, 4),      0         ['reshape_25[0][0]']          
+                              (None, 2, 2, 2, 1, 4),                                              
+                              (None, 2, 2, 2, 1, 4)]                                              
+                                                                                                  
+ tf.split_7 (TFOpLambda)     [(None, 2, 2, 2, 1, 4),      0         ['reshape_52[0][0]']          
+                              (None, 2, 2, 2, 1, 4),                                              
+                              (None, 2, 2, 2, 1, 4)]                                              
+                                                                                                  
+ tf.split_12 (TFOpLambda)    [(None, 2, 2, 2, 1, 4),      0         ['reshape_79[0][0]']          
+                              (None, 2, 2, 2, 1, 4),                                              
+                              (None, 2, 2, 2, 1, 4)]                                              
+                                                                                                  
+ tf.split_17 (TFOpLambda)    [(None, 2, 2, 2, 1, 4),      0         ['reshape_106[0][0]']         
+                              (None, 2, 2, 2, 1, 4),                                              
+                              (None, 2, 2, 2, 1, 4)]                                              
+                                                                                                  
+ tf.split_4 (TFOpLambda)     [(None, 2, 2, 2, 1, 4),      0         ['reshape_26[0][0]']          
+                              (None, 2, 2, 2, 1, 4),                                              
+                              (None, 2, 2, 2, 1, 4)]                                              
+                                                                                                  
+ tf.split_9 (TFOpLambda)     [(None, 2, 2, 2, 1, 4),      0         ['reshape_53[0][0]']          
+                              (None, 2, 2, 2, 1, 4),                                              
+                              (None, 2, 2, 2, 1, 4)]                                              
+                                                                                                  
+ tf.split_14 (TFOpLambda)    [(None, 2, 2, 2, 1, 4),      0         ['reshape_80[0][0]']          
+                              (None, 2, 2, 2, 1, 4),                                              
+                              (None, 2, 2, 2, 1, 4)]                                              
+                                                                                                  
+ tf.split_19 (TFOpLambda)    [(None, 2, 2, 2, 1, 4),      0         ['reshape_107[0][0]']         
+                              (None, 2, 2, 2, 1, 4),                                              
+                              (None, 2, 2, 2, 1, 4)]                                              
+                                                                                                  
+ tf.concat_2 (TFOpLambda)    (None, 6, 2, 2, 1, 4)        0         ['tf.split_2[0][0]',          
+                                                                     'tf.split_2[0][1]',          
+                                                                     'tf.split_2[0][2]']          
+                                                                                                  
+ tf.concat_8 (TFOpLambda)    (None, 6, 2, 2, 1, 4)        0         ['tf.split_7[0][0]',          
+                                                                     'tf.split_7[0][1]',          
+                                                                     'tf.split_7[0][2]']          
+                                                                                                  
+ tf.concat_14 (TFOpLambda)   (None, 6, 2, 2, 1, 4)        0         ['tf.split_12[0][0]',         
+                                                                     'tf.split_12[0][1]',         
+                                                                     'tf.split_12[0][2]']         
+                                                                                                  
+ tf.concat_20 (TFOpLambda)   (None, 6, 2, 2, 1, 4)        0         ['tf.split_17[0][0]',         
+                                                                     'tf.split_17[0][1]',         
+                                                                     'tf.split_17[0][2]']         
+                                                                                                  
+ tf.concat_4 (TFOpLambda)    (None, 6, 2, 2, 1, 4)        0         ['tf.split_4[0][0]',          
+                                                                     'tf.split_4[0][1]',          
+                                                                     'tf.split_4[0][2]']          
+                                                                                                  
+ tf.concat_10 (TFOpLambda)   (None, 6, 2, 2, 1, 4)        0         ['tf.split_9[0][0]',          
+                                                                     'tf.split_9[0][1]',          
+                                                                     'tf.split_9[0][2]']          
+                                                                                                  
+ tf.concat_16 (TFOpLambda)   (None, 6, 2, 2, 1, 4)        0         ['tf.split_14[0][0]',         
+                                                                     'tf.split_14[0][1]',         
+                                                                     'tf.split_14[0][2]']         
+                                                                                                  
+ tf.concat_22 (TFOpLambda)   (None, 6, 2, 2, 1, 4)        0         ['tf.split_19[0][0]',         
+                                                                     'tf.split_19[0][1]',         
+                                                                     'tf.split_19[0][2]']         
+                                                                                                  
+ tf.split_3 (TFOpLambda)     [(None, 6, 2, 2, 1, 1),      0         ['tf.concat_2[0][0]']         
+                              (None, 6, 2, 2, 1, 1),                                              
+                              (None, 6, 2, 2, 1, 1),                                              
+                              (None, 6, 2, 2, 1, 1)]                                              
+                                                                                                  
+ tf.split_8 (TFOpLambda)     [(None, 6, 2, 2, 1, 1),      0         ['tf.concat_8[0][0]']         
+                              (None, 6, 2, 2, 1, 1),                                              
+                              (None, 6, 2, 2, 1, 1),                                              
+                              (None, 6, 2, 2, 1, 1)]                                              
+                                                                                                  
+ tf.split_13 (TFOpLambda)    [(None, 6, 2, 2, 1, 1),      0         ['tf.concat_14[0][0]']        
+                              (None, 6, 2, 2, 1, 1),                                              
+                              (None, 6, 2, 2, 1, 1),                                              
+                              (None, 6, 2, 2, 1, 1)]                                              
+                                                                                                  
+ tf.split_18 (TFOpLambda)    [(None, 6, 2, 2, 1, 1),      0         ['tf.concat_20[0][0]']        
+                              (None, 6, 2, 2, 1, 1),                                              
+                              (None, 6, 2, 2, 1, 1),                                              
+                              (None, 6, 2, 2, 1, 1)]                                              
+                                                                                                  
+ tf.split_5 (TFOpLambda)     [(None, 6, 2, 2, 1, 1),      0         ['tf.concat_4[0][0]']         
+                              (None, 6, 2, 2, 1, 1),                                              
+                              (None, 6, 2, 2, 1, 1),                                              
+                              (None, 6, 2, 2, 1, 1)]                                              
+                                                                                                  
+ tf.split_10 (TFOpLambda)    [(None, 6, 2, 2, 1, 1),      0         ['tf.concat_10[0][0]']        
+                              (None, 6, 2, 2, 1, 1),                                              
+                              (None, 6, 2, 2, 1, 1),                                              
+                              (None, 6, 2, 2, 1, 1)]                                              
+                                                                                                  
+ tf.split_15 (TFOpLambda)    [(None, 6, 2, 2, 1, 1),      0         ['tf.concat_16[0][0]']        
+                              (None, 6, 2, 2, 1, 1),                                              
+                              (None, 6, 2, 2, 1, 1),                                              
+                              (None, 6, 2, 2, 1, 1)]                                              
+                                                                                                  
+ tf.split_20 (TFOpLambda)    [(None, 6, 2, 2, 1, 1),      0         ['tf.concat_22[0][0]']        
+                              (None, 6, 2, 2, 1, 1),                                              
+                              (None, 6, 2, 2, 1, 1),                                              
+                              (None, 6, 2, 2, 1, 1)]                                              
+                                                                                                  
+ tf.concat_3 (TFOpLambda)    (None, 6, 8, 2, 1, 1)        0         ['tf.split_3[0][0]',          
+                                                                     'tf.split_3[0][1]',          
+                                                                     'tf.split_3[0][2]',          
+                                                                     'tf.split_3[0][3]']          
+                                                                                                  
+ tf.concat_9 (TFOpLambda)    (None, 6, 8, 2, 1, 1)        0         ['tf.split_8[0][0]',          
+                                                                     'tf.split_8[0][1]',          
+                                                                     'tf.split_8[0][2]',          
+                                                                     'tf.split_8[0][3]']          
+                                                                                                  
+ tf.concat_15 (TFOpLambda)   (None, 6, 8, 2, 1, 1)        0         ['tf.split_13[0][0]',         
+                                                                     'tf.split_13[0][1]',         
+                                                                     'tf.split_13[0][2]',         
+                                                                     'tf.split_13[0][3]']         
+                                                                                                  
+ tf.concat_21 (TFOpLambda)   (None, 6, 8, 2, 1, 1)        0         ['tf.split_18[0][0]',         
+                                                                     'tf.split_18[0][1]',         
+                                                                     'tf.split_18[0][2]',         
+                                                                     'tf.split_18[0][3]']         
+                                                                                                  
+ tf.concat_5 (TFOpLambda)    (None, 6, 8, 2, 1, 1)        0         ['tf.split_5[0][0]',          
+                                                                     'tf.split_5[0][1]',          
+                                                                     'tf.split_5[0][2]',          
+                                                                     'tf.split_5[0][3]']          
+                                                                                                  
+ tf.concat_11 (TFOpLambda)   (None, 6, 8, 2, 1, 1)        0         ['tf.split_10[0][0]',         
+                                                                     'tf.split_10[0][1]',         
+                                                                     'tf.split_10[0][2]',         
+                                                                     'tf.split_10[0][3]']         
+                                                                                                  
+ tf.concat_17 (TFOpLambda)   (None, 6, 8, 2, 1, 1)        0         ['tf.split_15[0][0]',         
+                                                                     'tf.split_15[0][1]',         
+                                                                     'tf.split_15[0][2]',         
+                                                                     'tf.split_15[0][3]']         
+                                                                                                  
+ tf.concat_23 (TFOpLambda)   (None, 6, 8, 2, 1, 1)        0         ['tf.split_20[0][0]',         
+                                                                     'tf.split_20[0][1]',         
+                                                                     'tf.split_20[0][2]',         
+                                                                     'tf.split_20[0][3]']         
+                                                                                                  
+ tf.compat.v1.squeeze (TFOp  (None, 6, 8, 2)              0         ['tf.concat_3[0][0]']         
+ Lambda)                                                                                          
+                                                                                                  
+ tf.compat.v1.squeeze_2 (TF  (None, 6, 8, 2)              0         ['tf.concat_9[0][0]']         
+ OpLambda)                                                                                        
+                                                                                                  
+ tf.compat.v1.squeeze_4 (TF  (None, 6, 8, 2)              0         ['tf.concat_15[0][0]']        
+ OpLambda)                                                                                        
+                                                                                                  
+ tf.compat.v1.squeeze_6 (TF  (None, 6, 8, 2)              0         ['tf.concat_21[0][0]']        
+ OpLambda)                                                                                        
+                                                                                                  
+ tf.compat.v1.squeeze_1 (TF  (None, 6, 8, 2)              0         ['tf.concat_5[0][0]']         
+ OpLambda)                                                                                        
+                                                                                                  
+ tf.compat.v1.squeeze_3 (TF  (None, 6, 8, 2)              0         ['tf.concat_11[0][0]']        
+ OpLambda)                                                                                        
+                                                                                                  
+ tf.compat.v1.squeeze_5 (TF  (None, 6, 8, 2)              0         ['tf.concat_17[0][0]']        
+ OpLambda)                                                                                        
+                                                                                                  
+ tf.compat.v1.squeeze_7 (TF  (None, 6, 8, 2)              0         ['tf.concat_23[0][0]']        
+ OpLambda)                                                                                        
+                                                                                                  
+ q-resultant-0 (Concatenate  (None, 6, 8, 8)              0         ['tf.compat.v1.squeeze[0][0]',
+ )                                                                   'tf.compat.v1.squeeze_2[0][0]
+                                                                    ',                            
+                                                                     'tf.compat.v1.squeeze_4[0][0]
+                                                                    ',                            
+                                                                     'tf.compat.v1.squeeze_6[0][0]
+                                                                    ']                            
+                                                                                                  
+ q-resultant-1 (Concatenate  (None, 6, 8, 8)              0         ['tf.compat.v1.squeeze_1[0][0]
+ )                                                                  ',                            
+                                                                     'tf.compat.v1.squeeze_3[0][0]
+                                                                    ',                            
+                                                                     'tf.compat.v1.squeeze_5[0][0]
+                                                                    ',                            
+                                                                     'tf.compat.v1.squeeze_7[0][0]
+                                                                    ']                            
+                                                                                                  
+ add (Add)                   (None, 6, 8, 8)              0         ['max_pooling2d_4[0][0]',     
+                                                                     'q-resultant-0[0][0]']       
+                                                                                                  
+ add_1 (Add)                 (None, 6, 8, 8)              0         ['max_pooling2d_4[0][0]',     
+                                                                     'q-resultant-1[0][0]']       
+                                                                                                  
+ concatenate (Concatenate)   (None, 6, 8, 16)             0         ['add[0][0]',                 
+                                                                     'add_1[0][0]']               
+                                                                                                  
+ conv2d_transpose (Conv2DTr  (None, 12, 16, 8)            1160      ['concatenate[0][0]']         
+ anspose)                                                                                         
+                                                                                                  
+ concatenate_1 (Concatenate  (None, 12, 16, 16)           0         ['conv2d_transpose[0][0]',    
+ )                                                                   'conv2d_9[0][0]']            
+                                                                                                  
+ conv2d_10 (Conv2D)          (None, 12, 16, 8)            1160      ['concatenate_1[0][0]']       
+                                                                                                  
+ conv2d_11 (Conv2D)          (None, 12, 16, 8)            584       ['conv2d_10[0][0]']           
+                                                                                                  
+ conv2d_transpose_1 (Conv2D  (None, 24, 32, 16)           1168      ['conv2d_11[0][0]']           
+ Transpose)                                                                                       
+                                                                                                  
+ concatenate_2 (Concatenate  (None, 24, 32, 32)           0         ['conv2d_transpose_1[0][0]',  
+ )                                                                   'conv2d_7[0][0]']            
+                                                                                                  
+ conv2d_12 (Conv2D)          (None, 24, 32, 16)           4624      ['concatenate_2[0][0]']       
+                                                                                                  
+ conv2d_13 (Conv2D)          (None, 24, 32, 16)           2320      ['conv2d_12[0][0]']           
+                                                                                                  
+ conv2d_transpose_2 (Conv2D  (None, 48, 64, 32)           4640      ['conv2d_13[0][0]']           
+ Transpose)                                                                                       
+                                                                                                  
+ concatenate_3 (Concatenate  (None, 48, 64, 64)           0         ['conv2d_transpose_2[0][0]',  
+ )                                                                   'conv2d_5[0][0]']            
+                                                                                                  
+ conv2d_14 (Conv2D)          (None, 48, 64, 32)           18464     ['concatenate_3[0][0]']       
+                                                                                                  
+ conv2d_15 (Conv2D)          (None, 48, 64, 32)           9248      ['conv2d_14[0][0]']           
+                                                                                                  
+ conv2d_transpose_3 (Conv2D  (None, 96, 128, 16)          4624      ['conv2d_15[0][0]']           
+ Transpose)                                                                                       
+                                                                                                  
+ concatenate_4 (Concatenate  (None, 96, 128, 32)          0         ['conv2d_transpose_3[0][0]',  
+ )                                                                   'conv2d_3[0][0]']            
+                                                                                                  
+ conv2d_16 (Conv2D)          (None, 96, 128, 16)          4624      ['concatenate_4[0][0]']       
+                                                                                                  
+ conv2d_17 (Conv2D)          (None, 96, 128, 16)          2320      ['conv2d_16[0][0]']           
+                                                                                                  
+ conv2d_transpose_4 (Conv2D  (None, 192, 256, 8)          1160      ['conv2d_17[0][0]']           
+ Transpose)                                                                                       
+                                                                                                  
+ concatenate_5 (Concatenate  (None, 192, 256, 16)         0         ['conv2d_transpose_4[0][0]',  
+ )                                                                   'conv2d_1[0][0]']            
+                                                                                                  
+ conv2d_18 (Conv2D)          (None, 192, 256, 8)          1160      ['concatenate_5[0][0]']       
+                                                                                                  
+ conv2d_19 (Conv2D)          (None, 192, 256, 8)          584       ['conv2d_18[0][0]']           
+                                                                                                  
+ conv2d_20 (Conv2D)          (None, 192, 256, 1)          9         ['conv2d_19[0][0]']           
+                                                                                                  
+==================================================================================================
+Total params: 84729 (330.97 KB)
+Trainable params: 84729 (330.97 KB)
+Non-trainable params: 0 (0.00 Byte)
+__________________________________________________________________________________________________
+None
+====================================================================================================
+Successfully loaded fold 1 data
+Train size:  (160, 192, 256, 3)
+Val size:  (40, 192, 256, 3)
+====================================================================================================
+Epoch 1/20
+9/9 - 190s - loss: 0.6717 - compute_iou: 0.2390 - val_loss: 0.6434 - val_compute_iou: 0.2603 - 190s/epoch - 21s/step
+Epoch 2/20
+9/9 - 187s - loss: 0.6129 - compute_iou: 0.2253 - val_loss: 0.5697 - val_compute_iou: 0.2231 - 187s/epoch - 21s/step
+Epoch 3/20
+9/9 - 186s - loss: 0.5676 - compute_iou: 0.2144 - val_loss: 0.5489 - val_compute_iou: 0.2448 - 186s/epoch - 21s/step
+Epoch 4/20
+9/9 - 186s - loss: 0.5364 - compute_iou: 0.2367 - val_loss: 0.5248 - val_compute_iou: 0.2681 - 186s/epoch - 21s/step
+Epoch 5/20
+9/9 - 184s - loss: 0.5066 - compute_iou: 0.2724 - val_loss: 0.5101 - val_compute_iou: 0.2480 - 184s/epoch - 20s/step
+Epoch 6/20
+9/9 - 181s - loss: 0.5064 - compute_iou: 0.2866 - val_loss: 0.4837 - val_compute_iou: 0.2912 - 181s/epoch - 20s/step
+Epoch 7/20
+9/9 - 179s - loss: 0.4753 - compute_iou: 0.2963 - val_loss: 0.4678 - val_compute_iou: 0.3173 - 179s/epoch - 20s/step
+Epoch 8/20
+9/9 - 179s - loss: 0.4447 - compute_iou: 0.3633 - val_loss: 0.4599 - val_compute_iou: 0.3243 - 179s/epoch - 20s/step
+Epoch 9/20
+9/9 - 178s - loss: 0.4572 - compute_iou: 0.3633 - val_loss: 0.4521 - val_compute_iou: 0.3860 - 178s/epoch - 20s/step
+Epoch 10/20
+9/9 - 178s - loss: 0.4104 - compute_iou: 0.4069 - val_loss: 0.5508 - val_compute_iou: 0.4342 - 178s/epoch - 20s/step
+Epoch 11/20
+9/9 - 178s - loss: 0.4327 - compute_iou: 0.4195 - val_loss: 0.4286 - val_compute_iou: 0.4081 - 178s/epoch - 20s/step
+Epoch 12/20
+9/9 - 178s - loss: 0.3970 - compute_iou: 0.4262 - val_loss: 0.4064 - val_compute_iou: 0.3894 - 178s/epoch - 20s/step
+Epoch 13/20
+9/9 - 179s - loss: 0.3971 - compute_iou: 0.4232 - val_loss: 0.3968 - val_compute_iou: 0.4185 - 179s/epoch - 20s/step
+Epoch 14/20
+9/9 - 178s - loss: 0.3786 - compute_iou: 0.4661 - val_loss: 0.3553 - val_compute_iou: 0.4654 - 178s/epoch - 20s/step
+Epoch 15/20
+9/9 - 178s - loss: 0.3605 - compute_iou: 0.4765 - val_loss: 0.3641 - val_compute_iou: 0.4278 - 178s/epoch - 20s/step
+Epoch 16/20
+9/9 - 179s - loss: 0.3430 - compute_iou: 0.5107 - val_loss: 0.3455 - val_compute_iou: 0.5106 - 179s/epoch - 20s/step
+Epoch 17/20
+9/9 - 176s - loss: 0.3333 - compute_iou: 0.5170 - val_loss: 0.3274 - val_compute_iou: 0.5301 - 176s/epoch - 20s/step
+Epoch 18/20
+9/9 - 174s - loss: 0.3095 - compute_iou: 0.5496 - val_loss: 0.2841 - val_compute_iou: 0.5744 - 174s/epoch - 19s/step
+Epoch 19/20
+9/9 - 180s - loss: 0.2717 - compute_iou: 0.5902 - val_loss: 0.2650 - val_compute_iou: 0.5683 - 180s/epoch - 20s/step
+Epoch 20/20
+9/9 - 179s - loss: 0.2771 - compute_iou: 0.6228 - val_loss: 0.2988 - val_compute_iou: 0.6140 - 179s/epoch - 20s/step
+1/2 [==============>...............] - ETA: 8s2/2 [==============================] - ETA: 0s2/2 [==============================] - 15s 7s/step
+Fold 1 - IoU 0.5926720499992371 - Loss [0.6716604828834534, 0.612932562828064, 0.5676325559616089, 0.5364309549331665, 0.5066276788711548, 0.5063611268997192, 0.47532185912132263, 0.44466882944107056, 0.4571548402309418, 0.41037726402282715, 0.43271151185035706, 0.3969825804233551, 0.39712101221084595, 0.37861794233322144, 0.3605302572250366, 0.34300845861434937, 0.33333903551101685, 0.30953484773635864, 0.2717006802558899, 0.27706271409988403]
+====================================================================================================
+Successfully loaded fold 2 data
+Train size:  (160, 192, 256, 3)
+Val size:  (40, 192, 256, 3)
+====================================================================================================
+Epoch 1/20
+9/9 - 188s - loss: 0.6780 - compute_iou: 0.2440 - val_loss: 0.6511 - val_compute_iou: 0.2436 - 188s/epoch - 21s/step
+Epoch 2/20
+9/9 - 183s - loss: 0.6236 - compute_iou: 0.2340 - val_loss: 0.5538 - val_compute_iou: 0.2062 - 183s/epoch - 20s/step
+Epoch 3/20
+9/9 - 183s - loss: 0.5540 - compute_iou: 0.2264 - val_loss: 0.4989 - val_compute_iou: 0.2313 - 183s/epoch - 20s/step
+Epoch 4/20
+9/9 - 182s - loss: 0.4784 - compute_iou: 0.2960 - val_loss: 0.4113 - val_compute_iou: 0.2921 - 182s/epoch - 20s/step
+Epoch 5/20
+9/9 - 184s - loss: 0.4668 - compute_iou: 0.3580 - val_loss: 0.3902 - val_compute_iou: 0.4150 - 184s/epoch - 20s/step
+Epoch 6/20
+9/9 - 183s - loss: 0.4455 - compute_iou: 0.3751 - val_loss: 0.3769 - val_compute_iou: 0.3392 - 183s/epoch - 20s/step
+Epoch 7/20
+9/9 - 182s - loss: 0.3930 - compute_iou: 0.4030 - val_loss: 0.3391 - val_compute_iou: 0.3990 - 182s/epoch - 20s/step
+Epoch 8/20
+9/9 - 183s - loss: 0.3154 - compute_iou: 0.5096 - val_loss: 0.3140 - val_compute_iou: 0.4766 - 183s/epoch - 20s/step
+Epoch 9/20
+9/9 - 180s - loss: 0.2952 - compute_iou: 0.6086 - val_loss: 0.2585 - val_compute_iou: 0.5773 - 180s/epoch - 20s/step
+Epoch 10/20
+9/9 - 183s - loss: 0.3004 - compute_iou: 0.5915 - val_loss: 0.2513 - val_compute_iou: 0.5502 - 183s/epoch - 20s/step
+Epoch 11/20
+9/9 - 181s - loss: 0.2750 - compute_iou: 0.5878 - val_loss: 0.2433 - val_compute_iou: 0.5896 - 181s/epoch - 20s/step
+Epoch 12/20
+9/9 - 181s - loss: 0.2573 - compute_iou: 0.6163 - val_loss: 0.2417 - val_compute_iou: 0.6205 - 181s/epoch - 20s/step
+Epoch 13/20
+9/9 - 181s - loss: 0.2445 - compute_iou: 0.6647 - val_loss: 0.2287 - val_compute_iou: 0.6186 - 181s/epoch - 20s/step
+Epoch 14/20
+9/9 - 181s - loss: 0.2456 - compute_iou: 0.6378 - val_loss: 0.3755 - val_compute_iou: 0.6079 - 181s/epoch - 20s/step
+Epoch 15/20
+9/9 - 182s - loss: 0.2665 - compute_iou: 0.6144 - val_loss: 0.2273 - val_compute_iou: 0.5794 - 182s/epoch - 20s/step
+Epoch 16/20
+9/9 - 181s - loss: 0.2482 - compute_iou: 0.6337 - val_loss: 0.3170 - val_compute_iou: 0.4738 - 181s/epoch - 20s/step
+Epoch 17/20
+9/9 - 181s - loss: 0.2487 - compute_iou: 0.6257 - val_loss: 0.2326 - val_compute_iou: 0.5804 - 181s/epoch - 20s/step
+Epoch 18/20
+9/9 - 181s - loss: 0.2341 - compute_iou: 0.6545 - val_loss: 0.2149 - val_compute_iou: 0.6136 - 181s/epoch - 20s/step
+Epoch 19/20
+9/9 - 181s - loss: 0.2214 - compute_iou: 0.6662 - val_loss: 0.2015 - val_compute_iou: 0.6388 - 181s/epoch - 20s/step
+Epoch 20/20
+9/9 - 182s - loss: 0.2052 - compute_iou: 0.6925 - val_loss: 0.2322 - val_compute_iou: 0.6884 - 182s/epoch - 20s/step
+1/2 [==============>...............] - ETA: 7s2/2 [==============================] - ETA: 0s2/2 [==============================] - 15s 7s/step
+Fold 2 - IoU 0.6845821142196655 - Loss [0.6780174970626831, 0.6235932111740112, 0.5539805293083191, 0.4783645272254944, 0.4668165147304535, 0.4454939365386963, 0.3929525315761566, 0.3153998851776123, 0.29523056745529175, 0.3003552556037903, 0.2749694883823395, 0.25728458166122437, 0.24445080757141113, 0.24560360610485077, 0.2664938271045685, 0.24823062121868134, 0.24866315722465515, 0.23411259055137634, 0.22138483822345734, 0.2051643580198288]
+====================================================================================================
+Successfully loaded fold 3 data
+Train size:  (160, 192, 256, 3)
+Val size:  (40, 192, 256, 3)
+====================================================================================================
+Epoch 1/20
+9/9 - 183s - loss: 0.6951 - compute_iou: 0.2480 - val_loss: 0.6911 - val_compute_iou: 0.2273 - 183s/epoch - 20s/step
+Epoch 2/20
+9/9 - 184s - loss: 0.6905 - compute_iou: 0.2473 - val_loss: 0.6883 - val_compute_iou: 0.2275 - 184s/epoch - 20s/step
+Epoch 3/20
+9/9 - 182s - loss: 0.6866 - compute_iou: 0.2494 - val_loss: 0.6796 - val_compute_iou: 0.2337 - 182s/epoch - 20s/step
+Epoch 4/20
+9/9 - 183s - loss: 0.6461 - compute_iou: 0.3050 - val_loss: 0.5946 - val_compute_iou: 0.3347 - 183s/epoch - 20s/step
+Epoch 5/20
+9/9 - 182s - loss: 0.6216 - compute_iou: 0.3575 - val_loss: 0.6176 - val_compute_iou: 0.2785 - 182s/epoch - 20s/step
+Epoch 6/20
+9/9 - 183s - loss: 0.6342 - compute_iou: 0.2871 - val_loss: 0.5710 - val_compute_iou: 0.3365 - 183s/epoch - 20s/step
+Epoch 7/20
+9/9 - 183s - loss: 0.5705 - compute_iou: 0.3946 - val_loss: 0.4861 - val_compute_iou: 0.3255 - 183s/epoch - 20s/step
+Epoch 8/20
+9/9 - 183s - loss: 0.4074 - compute_iou: 0.4192 - val_loss: 0.3456 - val_compute_iou: 0.5900 - 183s/epoch - 20s/step
+Epoch 9/20
+9/9 - 182s - loss: 0.3269 - compute_iou: 0.5830 - val_loss: 0.2942 - val_compute_iou: 0.5381 - 182s/epoch - 20s/step
+Epoch 10/20
+9/9 - 183s - loss: 0.3094 - compute_iou: 0.5326 - val_loss: 0.3445 - val_compute_iou: 0.5854 - 183s/epoch - 20s/step
+Epoch 11/20
+9/9 - 183s - loss: 0.3201 - compute_iou: 0.5631 - val_loss: 0.3328 - val_compute_iou: 0.5520 - 183s/epoch - 20s/step
+Epoch 12/20
+9/9 - 183s - loss: 0.3012 - compute_iou: 0.5518 - val_loss: 0.2712 - val_compute_iou: 0.6376 - 183s/epoch - 20s/step
+Epoch 13/20
+9/9 - 182s - loss: 0.2954 - compute_iou: 0.5965 - val_loss: 0.2665 - val_compute_iou: 0.5879 - 182s/epoch - 20s/step
+Epoch 14/20
+9/9 - 182s - loss: 0.3044 - compute_iou: 0.5836 - val_loss: 0.3114 - val_compute_iou: 0.5152 - 182s/epoch - 20s/step
+Epoch 15/20
+9/9 - 183s - loss: 0.3727 - compute_iou: 0.5008 - val_loss: 0.2725 - val_compute_iou: 0.5314 - 183s/epoch - 20s/step
+Epoch 16/20
+9/9 - 182s - loss: 0.3326 - compute_iou: 0.4945 - val_loss: 0.3243 - val_compute_iou: 0.5532 - 182s/epoch - 20s/step
+Epoch 17/20
+9/9 - 183s - loss: 0.3114 - compute_iou: 0.5594 - val_loss: 0.2399 - val_compute_iou: 0.6132 - 183s/epoch - 20s/step
+Epoch 18/20
+9/9 - 184s - loss: 0.3117 - compute_iou: 0.5900 - val_loss: 0.2532 - val_compute_iou: 0.5827 - 184s/epoch - 20s/step
+Epoch 19/20
+9/9 - 181s - loss: 0.2908 - compute_iou: 0.5580 - val_loss: 0.2715 - val_compute_iou: 0.5979 - 181s/epoch - 20s/step
+Epoch 20/20
+9/9 - 180s - loss: 0.2674 - compute_iou: 0.6184 - val_loss: 0.2480 - val_compute_iou: 0.6422 - 180s/epoch - 20s/step
+1/2 [==============>...............] - ETA: 8s2/2 [==============================] - ETA: 0s2/2 [==============================] - 15s 7s/step
+Fold 3 - IoU 0.6223434209823608 - Loss [0.6950550079345703, 0.6905080080032349, 0.6865702867507935, 0.646104633808136, 0.621579647064209, 0.6341871023178101, 0.5704622268676758, 0.40737810730934143, 0.32685258984565735, 0.30944064259529114, 0.3201478123664856, 0.30124980211257935, 0.2953750491142273, 0.3043716549873352, 0.37271636724472046, 0.3325549364089966, 0.31139710545539856, 0.31170299649238586, 0.29080095887184143, 0.2674022614955902]
+====================================================================================================
+Successfully loaded fold 4 data
+Train size:  (160, 192, 256, 3)
+Val size:  (40, 192, 256, 3)
+====================================================================================================
+Epoch 1/20
+9/9 - 184s - loss: 0.6908 - compute_iou: 0.2305 - val_loss: 0.6876 - val_compute_iou: 0.3235 - 184s/epoch - 20s/step
+Epoch 2/20
+9/9 - 186s - loss: 0.6605 - compute_iou: 0.2278 - val_loss: 0.6567 - val_compute_iou: 0.2949 - 186s/epoch - 21s/step
+Epoch 3/20
+9/9 - 186s - loss: 0.5939 - compute_iou: 0.1988 - val_loss: 0.6734 - val_compute_iou: 0.2221 - 186s/epoch - 21s/step
+Epoch 4/20
+9/9 - 185s - loss: 0.5635 - compute_iou: 0.1901 - val_loss: 0.6620 - val_compute_iou: 0.2284 - 185s/epoch - 21s/step
+Epoch 5/20
+9/9 - 185s - loss: 0.5541 - compute_iou: 0.1959 - val_loss: 0.6544 - val_compute_iou: 0.2308 - 185s/epoch - 21s/step
+Epoch 6/20
+9/9 - 182s - loss: 0.5420 - compute_iou: 0.2039 - val_loss: 0.6371 - val_compute_iou: 0.2382 - 182s/epoch - 20s/step
+Epoch 7/20
+9/9 - 185s - loss: 0.5158 - compute_iou: 0.2148 - val_loss: 0.6036 - val_compute_iou: 0.2534 - 185s/epoch - 21s/step
+Epoch 8/20
+9/9 - 183s - loss: 0.4583 - compute_iou: 0.2654 - val_loss: 0.5416 - val_compute_iou: 0.3124 - 183s/epoch - 20s/step
+Epoch 9/20
+9/9 - 185s - loss: 0.4064 - compute_iou: 0.3349 - val_loss: 0.4683 - val_compute_iou: 0.3880 - 185s/epoch - 21s/step
+Epoch 10/20
+9/9 - 181s - loss: 0.3542 - compute_iou: 0.4335 - val_loss: 0.4102 - val_compute_iou: 0.4966 - 181s/epoch - 20s/step
+Epoch 11/20
+9/9 - 181s - loss: 0.3458 - compute_iou: 0.4626 - val_loss: 0.3913 - val_compute_iou: 0.4734 - 181s/epoch - 20s/step
+Epoch 12/20
+9/9 - 181s - loss: 0.3156 - compute_iou: 0.4940 - val_loss: 0.3726 - val_compute_iou: 0.5405 - 181s/epoch - 20s/step
+Epoch 13/20
+9/9 - 186s - loss: 0.2776 - compute_iou: 0.6000 - val_loss: 0.3527 - val_compute_iou: 0.5675 - 186s/epoch - 21s/step
+Epoch 14/20
+9/9 - 186s - loss: 0.2788 - compute_iou: 0.5736 - val_loss: 0.3181 - val_compute_iou: 0.6135 - 186s/epoch - 21s/step
+Epoch 15/20
+9/9 - 186s - loss: 0.2607 - compute_iou: 0.5927 - val_loss: 0.3103 - val_compute_iou: 0.6203 - 186s/epoch - 21s/step
+Epoch 16/20
+9/9 - 185s - loss: 0.2438 - compute_iou: 0.6242 - val_loss: 0.3098 - val_compute_iou: 0.6181 - 185s/epoch - 21s/step
+Epoch 17/20
+9/9 - 186s - loss: 0.2412 - compute_iou: 0.6280 - val_loss: 0.3446 - val_compute_iou: 0.5685 - 186s/epoch - 21s/step
+Epoch 18/20
+9/9 - 187s - loss: 0.2571 - compute_iou: 0.6051 - val_loss: 0.3025 - val_compute_iou: 0.6010 - 187s/epoch - 21s/step
+Epoch 19/20
+9/9 - 182s - loss: 0.2253 - compute_iou: 0.6310 - val_loss: 0.3378 - val_compute_iou: 0.6050 - 182s/epoch - 20s/step
+Epoch 20/20
+9/9 - 182s - loss: 0.2204 - compute_iou: 0.6651 - val_loss: 0.3007 - val_compute_iou: 0.6150 - 182s/epoch - 20s/step
+1/2 [==============>...............] - ETA: 7s2/2 [==============================] - ETA: 0s2/2 [==============================] - 15s 7s/step
+Fold 4 - IoU 0.6264868378639221 - Loss [0.6908174157142639, 0.6605119109153748, 0.5939047932624817, 0.5635437965393066, 0.5541211366653442, 0.5419814586639404, 0.515779435634613, 0.45830655097961426, 0.40637946128845215, 0.3542007803916931, 0.3457673192024231, 0.315634548664093, 0.2776331901550293, 0.27881208062171936, 0.2607148587703705, 0.24379852414131165, 0.2412477433681488, 0.257111519575119, 0.22526037693023682, 0.22035273909568787]
+====================================================================================================
+Successfully loaded fold 5 data
+Train size:  (160, 192, 256, 3)
+Val size:  (40, 192, 256, 3)
+====================================================================================================
+Epoch 1/20
+9/9 - 185s - loss: 0.6882 - compute_iou: 0.2446 - val_loss: 0.6730 - val_compute_iou: 0.2336 - 185s/epoch - 21s/step
+Epoch 2/20
+9/9 - 185s - loss: 0.6477 - compute_iou: 0.2328 - val_loss: 0.5744 - val_compute_iou: 0.2016 - 185s/epoch - 21s/step
+Epoch 3/20
+9/9 - 182s - loss: 0.5848 - compute_iou: 0.2036 - val_loss: 0.5489 - val_compute_iou: 0.2127 - 182s/epoch - 20s/step
+Epoch 4/20
+9/9 - 184s - loss: 0.5631 - compute_iou: 0.2182 - val_loss: 0.5259 - val_compute_iou: 0.2241 - 184s/epoch - 20s/step
+Epoch 5/20
+9/9 - 184s - loss: 0.5426 - compute_iou: 0.2274 - val_loss: 0.5168 - val_compute_iou: 0.2551 - 184s/epoch - 20s/step
+Epoch 6/20
+9/9 - 183s - loss: 0.5063 - compute_iou: 0.2608 - val_loss: 0.4624 - val_compute_iou: 0.2755 - 183s/epoch - 20s/step
+Epoch 7/20
+9/9 - 187s - loss: 0.4883 - compute_iou: 0.2941 - val_loss: 0.4292 - val_compute_iou: 0.3267 - 187s/epoch - 21s/step
+Epoch 8/20
+9/9 - 185s - loss: 0.4549 - compute_iou: 0.3167 - val_loss: 0.4172 - val_compute_iou: 0.3393 - 185s/epoch - 21s/step
+Epoch 9/20
+9/9 - 185s - loss: 0.3924 - compute_iou: 0.3864 - val_loss: 0.4643 - val_compute_iou: 0.4567 - 185s/epoch - 21s/step
+Epoch 10/20
+9/9 - 186s - loss: 0.3342 - compute_iou: 0.5215 - val_loss: 0.2875 - val_compute_iou: 0.6191 - 186s/epoch - 21s/step
+Epoch 11/20
+9/9 - 186s - loss: 0.3019 - compute_iou: 0.6005 - val_loss: 0.2594 - val_compute_iou: 0.6401 - 186s/epoch - 21s/step
+Epoch 12/20
+9/9 - 185s - loss: 0.2792 - compute_iou: 0.5695 - val_loss: 0.2777 - val_compute_iou: 0.5874 - 185s/epoch - 21s/step
+Epoch 13/20
+9/9 - 185s - loss: 0.2680 - compute_iou: 0.6188 - val_loss: 0.2616 - val_compute_iou: 0.6964 - 185s/epoch - 21s/step
+Epoch 14/20
+9/9 - 181s - loss: 0.2555 - compute_iou: 0.6464 - val_loss: 0.2579 - val_compute_iou: 0.6763 - 181s/epoch - 20s/step
+Epoch 15/20
+9/9 - 182s - loss: 0.2323 - compute_iou: 0.6668 - val_loss: 0.2305 - val_compute_iou: 0.7109 - 182s/epoch - 20s/step
+Epoch 16/20
+9/9 - 183s - loss: 0.2575 - compute_iou: 0.6318 - val_loss: 0.2481 - val_compute_iou: 0.6751 - 183s/epoch - 20s/step
+Epoch 17/20
+9/9 - 182s - loss: 0.2433 - compute_iou: 0.6299 - val_loss: 0.2241 - val_compute_iou: 0.6767 - 182s/epoch - 20s/step
+Epoch 18/20
+9/9 - 180s - loss: 0.2340 - compute_iou: 0.6512 - val_loss: 0.2289 - val_compute_iou: 0.7022 - 180s/epoch - 20s/step
+Epoch 19/20
+9/9 - 181s - loss: 0.2176 - compute_iou: 0.6865 - val_loss: 0.2149 - val_compute_iou: 0.7252 - 181s/epoch - 20s/step
+Epoch 20/20
+9/9 - 182s - loss: 0.2050 - compute_iou: 0.6989 - val_loss: 0.2108 - val_compute_iou: 0.7214 - 182s/epoch - 20s/step
+1/2 [==============>...............] - ETA: 7s2/2 [==============================] - ETA: 0s2/2 [==============================] - 15s 7s/step
+Fold 5 - IoU 0.6883493065834045 - Loss [0.6882299184799194, 0.6477172374725342, 0.5848201513290405, 0.5630688667297363, 0.5425990223884583, 0.5063071846961975, 0.4882943630218506, 0.45488905906677246, 0.39235326647758484, 0.3341847062110901, 0.30189499258995056, 0.2792060375213623, 0.2680220305919647, 0.2554585933685303, 0.23225638270378113, 0.25747182965278625, 0.2432653158903122, 0.23403429985046387, 0.21755966544151306, 0.20495721697807312]
+====================================================================================================
+====================================================================================================
+Average IoU: 0.6429
+====================================================================================================
+====================================================================================================

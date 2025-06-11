@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --job-name=unet_80k
+#SBATCH --output=unet_80k.out
+#SBATCH --ntasks=16
+#SBATCH --cpus-per-task=1
+#SBATCH --time=2:00:00
+#SBATCH --mem=16GB
+#SBATCH --account=kalev_1005
+#SBATCH --partition=epyc-64
+
+echo "Starting Job: UNet with ~ 80k"
+echo "----------------------------------------------------------"
+
+python main_unet_80k.py > results/unet/unet_80k/unet_80k.txt

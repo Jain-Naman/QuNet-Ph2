@@ -1,0 +1,10 @@
+#!/bin/bash
+#SBATCH --job-name=save_folds_ph2
+#SBATCH --ntasks=16
+#SBATCH --cpus-per-task=1
+#SBATCH --time=1:00:00
+#SBATCH --mem=32GB
+#SBATCH --account=kalev_1005
+#SBATCH --partition=epyc-64
+
+python main_save_folds.py > save_folds_ph2.txt

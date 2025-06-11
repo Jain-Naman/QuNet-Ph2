@@ -1,0 +1,99 @@
+====================================================================================================
+Successfully loaded fold 4 data
+Train size:  (160, 192, 256, 3)
+Val size:  (40, 192, 256, 3)
+====================================================================================================
+Epoch 1/20
+9/9 - 139s - loss: 0.6846 - compute_iou: 0.2304 - val_loss: 0.6755 - val_compute_iou: 0.3137 - 139s/epoch - 15s/step
+Epoch 2/20
+9/9 - 128s - loss: 0.6155 - compute_iou: 0.1990 - val_loss: 0.6513 - val_compute_iou: 0.2511 - 128s/epoch - 14s/step
+Epoch 3/20
+9/9 - 128s - loss: 0.5725 - compute_iou: 0.2104 - val_loss: 0.6493 - val_compute_iou: 0.2414 - 128s/epoch - 14s/step
+Epoch 4/20
+9/9 - 128s - loss: 0.5485 - compute_iou: 0.1983 - val_loss: 0.6436 - val_compute_iou: 0.2366 - 128s/epoch - 14s/step
+Epoch 5/20
+9/9 - 128s - loss: 0.5297 - compute_iou: 0.2122 - val_loss: 0.6256 - val_compute_iou: 0.2441 - 128s/epoch - 14s/step
+Epoch 6/20
+9/9 - 127s - loss: 0.4964 - compute_iou: 0.2337 - val_loss: 0.5783 - val_compute_iou: 0.2820 - 127s/epoch - 14s/step
+Epoch 7/20
+9/9 - 128s - loss: 0.4667 - compute_iou: 0.2761 - val_loss: 0.5488 - val_compute_iou: 0.3226 - 128s/epoch - 14s/step
+Epoch 8/20
+9/9 - 129s - loss: 0.4620 - compute_iou: 0.2886 - val_loss: 0.5721 - val_compute_iou: 0.3275 - 129s/epoch - 14s/step
+Epoch 9/20
+9/9 - 129s - loss: 0.4680 - compute_iou: 0.2788 - val_loss: 0.6363 - val_compute_iou: 0.2644 - 129s/epoch - 14s/step
+Epoch 10/20
+9/9 - 127s - loss: 0.4254 - compute_iou: 0.3048 - val_loss: 0.5497 - val_compute_iou: 0.3066 - 127s/epoch - 14s/step
+Epoch 11/20
+9/9 - 128s - loss: 0.3983 - compute_iou: 0.3343 - val_loss: 0.5114 - val_compute_iou: 0.3463 - 128s/epoch - 14s/step
+Epoch 12/20
+9/9 - 129s - loss: 0.4039 - compute_iou: 0.3358 - val_loss: 0.5061 - val_compute_iou: 0.3333 - 129s/epoch - 14s/step
+Epoch 13/20
+9/9 - 128s - loss: 0.3845 - compute_iou: 0.3479 - val_loss: 0.4902 - val_compute_iou: 0.3659 - 128s/epoch - 14s/step
+Epoch 14/20
+9/9 - 127s - loss: 0.3664 - compute_iou: 0.3700 - val_loss: 0.5048 - val_compute_iou: 0.3620 - 127s/epoch - 14s/step
+Epoch 15/20
+9/9 - 128s - loss: 0.3508 - compute_iou: 0.4056 - val_loss: 0.4585 - val_compute_iou: 0.4041 - 128s/epoch - 14s/step
+Epoch 16/20
+9/9 - 129s - loss: 0.3303 - compute_iou: 0.4177 - val_loss: 0.4192 - val_compute_iou: 0.4708 - 129s/epoch - 14s/step
+Epoch 17/20
+9/9 - 128s - loss: 0.2793 - compute_iou: 0.5438 - val_loss: 0.3501 - val_compute_iou: 0.5530 - 128s/epoch - 14s/step
+Epoch 18/20
+9/9 - 128s - loss: 0.2279 - compute_iou: 0.6244 - val_loss: 0.2967 - val_compute_iou: 0.6431 - 128s/epoch - 14s/step
+Epoch 19/20
+9/9 - 129s - loss: 0.2147 - compute_iou: 0.6657 - val_loss: 0.2771 - val_compute_iou: 0.6666 - 129s/epoch - 14s/step
+Epoch 20/20
+9/9 - 128s - loss: 0.1971 - compute_iou: 0.7082 - val_loss: 0.2691 - val_compute_iou: 0.6875 - 128s/epoch - 14s/step
+1/2 [==============>...............] - ETA: 6s2/2 [==============================] - ETA: 0s2/2 [==============================] - 12s 5s/step
+Fold 4 - IoU 0.7015931010246277 - Loss [0.6846221685409546, 0.6155156493186951, 0.5724818706512451, 0.5485497713088989, 0.5296509861946106, 0.4963933825492859, 0.4667070508003235, 0.46200114488601685, 0.4680161476135254, 0.4253855347633362, 0.3982928395271301, 0.4039343297481537, 0.38447755575180054, 0.3664052188396454, 0.3508058786392212, 0.33033934235572815, 0.2793199419975281, 0.22785182297229767, 0.21471545100212097, 0.19711725413799286]
+====================================================================================================
+Successfully loaded fold 5 data
+Train size:  (160, 192, 256, 3)
+Val size:  (40, 192, 256, 3)
+====================================================================================================
+Epoch 1/20
+9/9 - 131s - loss: 0.6497 - compute_iou: 0.2373 - val_loss: 0.6037 - val_compute_iou: 0.2239 - 131s/epoch - 15s/step
+Epoch 2/20
+9/9 - 140s - loss: 0.5952 - compute_iou: 0.2118 - val_loss: 0.5534 - val_compute_iou: 0.2051 - 140s/epoch - 16s/step
+Epoch 3/20
+9/9 - 132s - loss: 0.5747 - compute_iou: 0.2136 - val_loss: 0.5381 - val_compute_iou: 0.2178 - 132s/epoch - 15s/step
+Epoch 4/20
+9/9 - 131s - loss: 0.5465 - compute_iou: 0.2281 - val_loss: 0.4887 - val_compute_iou: 0.2741 - 131s/epoch - 15s/step
+Epoch 5/20
+9/9 - 130s - loss: 0.4658 - compute_iou: 0.3181 - val_loss: 0.3872 - val_compute_iou: 0.3986 - 130s/epoch - 14s/step
+Epoch 6/20
+9/9 - 131s - loss: 0.4055 - compute_iou: 0.3986 - val_loss: 0.3771 - val_compute_iou: 0.4415 - 131s/epoch - 15s/step
+Epoch 7/20
+9/9 - 130s - loss: 0.3821 - compute_iou: 0.4539 - val_loss: 0.3212 - val_compute_iou: 0.5239 - 130s/epoch - 14s/step
+Epoch 8/20
+9/9 - 129s - loss: 0.3246 - compute_iou: 0.5268 - val_loss: 0.2939 - val_compute_iou: 0.5927 - 129s/epoch - 14s/step
+Epoch 9/20
+9/9 - 128s - loss: 0.3162 - compute_iou: 0.5555 - val_loss: 0.3100 - val_compute_iou: 0.5536 - 128s/epoch - 14s/step
+Epoch 10/20
+9/9 - 127s - loss: 0.2905 - compute_iou: 0.5961 - val_loss: 0.2710 - val_compute_iou: 0.6357 - 127s/epoch - 14s/step
+Epoch 11/20
+9/9 - 126s - loss: 0.2580 - compute_iou: 0.6105 - val_loss: 0.2762 - val_compute_iou: 0.6179 - 126s/epoch - 14s/step
+Epoch 12/20
+9/9 - 124s - loss: 0.2442 - compute_iou: 0.6456 - val_loss: 0.2523 - val_compute_iou: 0.6699 - 124s/epoch - 14s/step
+Epoch 13/20
+9/9 - 127s - loss: 0.2503 - compute_iou: 0.6466 - val_loss: 0.2566 - val_compute_iou: 0.6684 - 127s/epoch - 14s/step
+Epoch 14/20
+9/9 - 126s - loss: 0.2454 - compute_iou: 0.6514 - val_loss: 0.2604 - val_compute_iou: 0.6595 - 126s/epoch - 14s/step
+Epoch 15/20
+9/9 - 126s - loss: 0.2405 - compute_iou: 0.6508 - val_loss: 0.2706 - val_compute_iou: 0.6502 - 126s/epoch - 14s/step
+Epoch 16/20
+9/9 - 129s - loss: 0.2424 - compute_iou: 0.6600 - val_loss: 0.2371 - val_compute_iou: 0.6921 - 129s/epoch - 14s/step
+Epoch 17/20
+9/9 - 125s - loss: 0.2212 - compute_iou: 0.6729 - val_loss: 0.2495 - val_compute_iou: 0.6761 - 125s/epoch - 14s/step
+Epoch 18/20
+9/9 - 127s - loss: 0.2408 - compute_iou: 0.6555 - val_loss: 0.2764 - val_compute_iou: 0.6703 - 127s/epoch - 14s/step
+Epoch 19/20
+9/9 - 127s - loss: 0.2270 - compute_iou: 0.6771 - val_loss: 0.2931 - val_compute_iou: 0.6744 - 127s/epoch - 14s/step
+Epoch 20/20
+9/9 - 128s - loss: 0.2281 - compute_iou: 0.6644 - val_loss: 0.3116 - val_compute_iou: 0.6762 - 128s/epoch - 14s/step
+1/2 [==============>...............] - ETA: 6s2/2 [==============================] - ETA: 0s2/2 [==============================] - 12s 5s/step
+Fold 5 - IoU 0.6336272954940796 - Loss [0.6497246026992798, 0.5951920747756958, 0.5746729373931885, 0.5465396642684937, 0.4658164978027344, 0.40548673272132874, 0.3821285367012024, 0.3246174156665802, 0.31621429324150085, 0.2905433177947998, 0.2579681873321533, 0.24417825043201447, 0.2502918243408203, 0.24542228877544403, 0.24050629138946533, 0.2424371987581253, 0.2212183028459549, 0.24082672595977783, 0.2269662618637085, 0.22805318236351013]
+====================================================================================================
+====================================================================================================
+Average IoU: 0.6676
+====================================================================================================
+====================================================================================================

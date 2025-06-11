@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --job-name=qunet_12_1
+#SBATCH --output=qunet_12_1.out
+#SBATCH --ntasks=40
+#SBATCH --cpus-per-task=1
+#SBATCH --time=4:00:00
+#SBATCH --mem=32GB
+#SBATCH --account=kalev_1005
+#SBATCH --partition=epyc-64
+
+echo "Starting Job: QuNet with 12 qubits, 1 filter, 3x4 patches"
+echo "----------------------------------------------------------"
+
+python main_qunet_12_1.py > results/qunet/qunet_12_1/qunet_12_1_add.txt
