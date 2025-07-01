@@ -1,0 +1,8 @@
+matplotlib==3.8.2
+numpy==1.26.4
+opencv-python==4.9.0.80
+PennyLane==0.34.0
+scikit-learn==1.4.0
+scikit-image==0.25.2
+silence-tensorflow==1.2.1
+tensorflow==2.15.0

@@ -1,4 +1,4 @@
-# Running QUnet on HPC using Slurm (CARC)
+# Running Qu-Net on HPC using Slurm (CARC)
 
 This guide outlines how to execute your QUnet code on the USC CARC high-performance cluster (HPC) using the SLURM job manager. It includes details about hyperparameters, model architecture, current job submission setup, and the ideal workflow using OnDemand with Jupyter notebooks.
 
@@ -20,7 +20,6 @@ k = 5                     # Fold count for cross-validation (if used)
 
 ### `models/`
 This folder contains all model architecture definitions. For example:
-
 qunet_4_1.py: Contains the definition for QUnet model with 4 qubits 1 filter.
 
 Make sure the main_\<model\>.py imports from these correctly.
@@ -43,8 +42,18 @@ Make sure the main_\<model\>.py imports from these correctly.
 #SBATCH --partition=epyc-64            # HPC partition (queue)
 ```
 ```
-command line - 
+# Creating a virtual environment
+mamba create --name <env_name>
 
+# Activate virtual environment 
+mamba activate <env_name>
+
+# Install packages (see requirements.txt for the list of packages to be installed)
+mamba install <pkg> (or pip install <pkg> - if <pkg> not available via conda package manager)
+```    
+For more details, see [USC CARC Documentation](https://www.carc.usc.edu/user-guides/hpc-systems/software/conda)
+```
+command line - 
 module load conda
 
 # Activate your Python virtual environment
@@ -69,7 +78,7 @@ Before running your jobs, make sure:
 ## Improvements and Ideal setup
 
 Code improvements 
-- MIgrate to PyTorch
+- Migrate to PyTorch
 - Include optimization like Jax, optax etc for quicker simulations
 - organize better so that there is no need for separate main files
 - use classes and objects to build abstraction layers
